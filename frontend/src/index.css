@@ -2,6 +2,8 @@
 
 :root {
     --color-primary: #4D41C0;
+    --color-star-value: #FFBB3A;
+    --color-star-count: #989898;
 }
 
 * {
