@@ -8,13 +8,8 @@ import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 
 import javax.persistence.Column
+import javax.persistence.EmbeddedId
 import javax.persistence.Entity
-import javax.persistence.FetchType
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
 import javax.persistence.Table
 import java.time.LocalDateTime
 
@@ -24,26 +19,15 @@ import java.time.LocalDateTime
 @Table(name = "tb_score")
 class Score {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id
-
-    @JsonIgnoreProperties("hibernateLazyInitializer")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "movie_id", nullable = false)
-    Movie movie
-
-    @JsonIgnoreProperties("hibernateLazyInitializer")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    User user
+    @EmbeddedId
+    ScorePK id = new ScorePK()
 
     @Column(nullable = false)
     Double value
 
     @JsonIgnore
     @CreationTimestamp
-    @Column(nullable = false, columnDefinition = "datetime")
+    @Column(nullable = false, columnDefinition = "datetime", updatable = false)
     LocalDateTime dataCadastro
 
     @JsonIgnore
