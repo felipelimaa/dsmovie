@@ -14,9 +14,7 @@ repositories {
 
 jar {
 	manifest {
-		attributes(
-				'Main-Class': 'br.com.felipelima.dsmovie.DsmovieApplication'
-		)
+		attributes 'Main-Class': 'br.com.felipelima.dsmovie.DsmovieApplication'
 	}
 }
 
