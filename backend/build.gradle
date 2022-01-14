@@ -12,16 +12,17 @@ repositories {
 	mavenCentral()
 }
 
-/*jar {
-	manifest {
-		attributes "Main-Class" : 'br.com.felipelima.dsmovie.DsmovieApplication'
+/*sourceSets {
+	main {
+		java.srcDirs = ['src/main/groovy']
 	}
 }*/
 
 jar{
+	enabled (false)
 	manifest {
 		attributes(
-				"Main-Class": "br.com.felipelima.dsmovie.DsmovieApplication"
+				"Main-Class": "DsmovieApplication"
 		)
 	}
 	dependsOn ('dependencies')
