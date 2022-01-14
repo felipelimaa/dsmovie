@@ -14,9 +14,19 @@ repositories {
 
 /*jar {
 	manifest {
-		attributes 'Main-Class': 'br.com.felipelima.dsmovie.DsmovieApplication'
+		attributes "Main-Class" : 'br.com.felipelima.dsmovie.DsmovieApplication'
 	}
 }*/
+
+jar{
+	manifest {
+		attributes(
+				"Main-Class": "br.com.felipelima.dsmovie.DsmovieApplication"
+		)
+	}
+	dependsOn ('dependencies')
+}
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
